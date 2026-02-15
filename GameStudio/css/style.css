@@ -177,7 +177,7 @@ nav li a:hover {
 
 /* ---- HERO SECTION ---- */
 .hero-wrap {
-  background: url('../assets/img/hero-bg.webp') no-repeat center center/cover;
+  background: url('../assets/img/mhero-bg.jpeg') no-repeat center center/cover;
   min-height: 100vh;
   color: hsl(240, 76%, 96%);
   display: grid;
