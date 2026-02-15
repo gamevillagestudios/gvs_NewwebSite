@@ -1,0 +1,136 @@
+#contact h1 {
+  margin-bottom: 1.25rem;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+#contact .wrap {
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 800px) {
+  #contact .wrap {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+@media (min-width: 1200px) {
+  #contact .wrap {
+    gap: 4rem;
+  }
+}
+
+#contact form {
+  background-color: hsl(240, 30%, 93%);
+  padding: 4rem 3rem;
+  border-radius: 10px;
+}
+
+#contact label {
+  display: block;
+}
+
+#contact label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+#contact input,
+#contact textarea {
+  display: block;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  outline: none;
+  border: 2px solid hsl(240, 18%, 75%);
+}
+#contact input:focus,
+#contact textarea:focus {
+  border: 2px solid hsl(240, 94%, 42%);
+}
+
+#contact button {
+  background-color: hsl(240, 61%, 32%);
+  color: hsl(255, 11%, 92%);
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+#contact button:hover {
+  background-color: hsl(240, 31%, 32%);
+}
+
+#contact textarea {
+  resize: vertical;
+}
+
+#contact .other {
+  margin-top: 1rem;
+}
+
+#contact .phone-mail {
+  margin-top: 1rem;
+  border: 2px solid hsl(240, 31%, 32%);
+  border-radius: 10px;
+  padding: 2rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+#contact .phone-mail article {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+#contact .phone-mail h4 {
+  font-size: 1.25rem;
+}
+#contact .phone-mail p {
+  font-size: 1.1rem;
+}
+
+#contact .map-location {
+  padding-top: 5rem;
+}
+
+#contact .map-location img {
+  border-radius: 10px;
+  object-fit: cover;
+  max-height: 500px;
+}
+
+#contact .address {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: hsl(240, 18%, 45%);
+  font-weight: 600;
+}
+
+#contact .address span {
+  color: hsl(240, 17%, 40%);
+}
+
+#contact .contact-socials {
+  padding-top: 5rem;
+}
+
+#contact .contact-socials .list {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+#contact .contact-socials .list a {
+  background-color: hsl(240, 17%, 93%);
+  padding: 1rem;
+  border-radius: 10px;
+  opacity: 0.8;
+}
+#contact .contact-socials .list a:hover {
+  opacity: 1;
+}

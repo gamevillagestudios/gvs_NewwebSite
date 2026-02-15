@@ -1,0 +1,209 @@
+#article img {
+  border-radius: 10px;
+}
+
+#article h1 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 800px) {
+  #article h1 {
+    font-size: 1.8rem;
+  }
+}
+@media (min-width: 1400px) {
+  #article h1 {
+    font-size: 2.5rem;
+  }
+}
+
+#article .cover {
+  min-height: 400px;
+  max-height: 70vh;
+  object-fit: cover;
+
+  max-width: 75ch;
+  margin-inline: auto;
+}
+@media (min-width: 1400px) {
+  #article .cover {
+    max-width: revert;
+    padding: revert;
+  }
+}
+
+#article .wrap {
+  margin-top: 1rem;
+  text-align: center;
+  display: grid;
+  justify-items: center;
+}
+
+#article .details {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1.25rem;
+}
+
+#article .time,
+#article .author {
+  display: grid;
+  grid-template-columns: 12px 1fr;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+}
+@media (min-width: 800px) {
+  #article .time,
+  #article .author {
+    font-size: 1rem;
+  }
+}
+
+#article .content {
+  margin-top: 3rem;
+  max-width: 75ch;
+  margin-inline: auto;
+  display: grid;
+  gap: 1.5rem;
+}
+
+#article .content p {
+  font-size: 1.3rem;
+}
+
+#comments {
+  max-width: 75ch;
+  margin: 3rem auto 5rem;
+}
+@media (max-width: 800px) {
+  #comments {
+    padding-inline: 1rem;
+  }
+}
+
+#comments h2 {
+  font-size: 1.25rem;
+}
+
+#comments form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+#comments input,
+#comments textarea {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  border-radius: 10px;
+  border: 1px solid hsl(240, 20%, 50%);
+  resize: vertical;
+}
+
+#comments form button {
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  max-width: 190px;
+  border: none;
+  background-color: hsl(240, 70%, 50%);
+  color: white;
+}
+#comments form button:hover {
+  background-color: hsl(240, 70%, 60%);
+}
+
+#comments .comment-list {
+  margin-top: 0.25rem;
+  display: grid;
+  gap: 1rem;
+}
+
+#comments .comment {
+  background-color: hsl(214, 10%, 95%);
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+}
+
+#comments .comment:not(.level-2) {
+  margin-top: 0.75rem;
+}
+
+#comments .comment.level-2 {
+  margin-left: 3rem;
+  position: relative;
+}
+#comments .comment.level-2::before {
+  content: '';
+  position: absolute;
+  border-left: 1px solid;
+  top: 0;
+  bottom: -15px;
+  left: -20px;
+  color: hsl(240, 20%, 90%);
+}
+#comments .comment.level-2.last-reply::before {
+  bottom: 0px;
+}
+
+#comments .comment.level-2 .reply-btn {
+  display: none;
+}
+
+#comments .comment .header {
+  display: flex;
+  gap: 1.25rem;
+}
+
+#comments .comment .main {
+  margin-block: 0.7rem;
+}
+
+#comments .comment .name {
+  font-weight: 700;
+}
+
+#comments .comment .time {
+  color: hsl(240, 20%, 40%);
+  font-size: 0.9rem;
+}
+
+#comments .comment .footer {
+  display: flex;
+  gap: 1rem;
+}
+
+#comments .react {
+  background-color: hsl(214, 22%, 88%);
+  padding: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+#comments .react:hover {
+  background-color: hsl(214, 22%, 85%);
+}
+
+#comments .react img {
+  width: 18px;
+}
+
+#comments .react span {
+  font-size: 0.9rem;
+}
+
+#comments .reply-btn {
+  background-color: hsl(214, 22%, 84%);
+  width: 100px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+#comments .reply-btn:hover {
+  background-color: hsl(214, 20%, 80%);
+}
