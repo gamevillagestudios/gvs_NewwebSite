@@ -220,6 +220,14 @@ nav li a:hover {
   color: hsl(209, 76%, 96%);
 }
 
+.circle-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
 #hero h1 {
   font-size: 2rem;
   line-height: 1.2;
