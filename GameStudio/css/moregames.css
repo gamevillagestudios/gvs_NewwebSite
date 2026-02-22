@@ -51,3 +51,120 @@
   gap: 8px;
   cursor: pointer;
 }
+
+/* ===== Premium Grid Layout ===== */
+#latest .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+/* ===== Premium Glass Card ===== */
+#latest .cards article {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+
+  transition: all 0.4s ease;
+}
+
+/* ===== Gradient Glow Border ===== */
+#latest .cards article::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    rgba(90,120,255,0.7),
+    rgba(170,70,255,0.7),
+    rgba(255,90,200,0.7)
+  );
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* ===== Hover Premium Effect ===== */
+#latest .cards article:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.35),
+    0 0 25px rgba(120,100,255,0.4);
+}
+
+/* ===== Image ===== */
+#latest .cards article img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* Image Zoom Hover */
+#latest .cards article:hover img {
+  transform: scale(1.08);
+}
+
+/* ===== Details Section ===== */
+#latest .cards .details {
+  padding: 1.3rem;
+  text-align: center;
+  color: white;
+}
+
+/* ===== Title ===== */
+#latest .cards h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Buttons ===== */
+#latest .cards .btns {
+  margin-top: 0.7rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== Premium Playstore Button ===== */
+#latest .cards .btns a {
+  padding: 10px 18px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #5865ff, #a855f7);
+  box-shadow: 0 6px 18px rgba(88,101,255,0.4);
+  transition: 0.3s;
+}
+
+/* Button Hover */
+#latest .cards .btns a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 28px rgba(168,85,247,0.6);
+}
+
+/* Playstore Icon Size */
+#latest .cards .btns img {
+  width: 28px;
+}
+#games .cards-wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+#games .cards {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr); /* force 2 per row like index.html */
+}
+
+#games .cards article {
+  min-height: 300px; /* adjust */
+}

@@ -14,8 +14,10 @@
     const game = child.val();
     gamesArray.push({
       name: game.gamename,
-      icon: "assets/games_icons/foodtruck.webp", // change if dynamic
-      playstore: game.playstore
+      icon: game.iconimage_url, // change if dynamic
+      image: game.image_url,
+      video : game.utube_url,
+      playstore: game.playstore_url
     });
   });
 
@@ -28,13 +30,13 @@
   function createCard(game) {
     const article = document.createElement("article");
     article.innerHTML = `
-      <img src="${game.icon}" alt="${game.name}" />
+      <img src="${game.image}" alt="${game.name}" />
       <div class="details">
         <img src="${game.icon}" alt="${game.name}" />
         <div>
           <h3>${game.name}</h3>
           <div class="btns">
-            <a title="playstore" target="_blank" href="${game.playstore}">
+            <a title="playstore" target="_blank" href="${game.playstore_url}">
               <img src="assets/img/play-store.png" alt="Play Store" />
             </a>
           </div>
@@ -68,52 +70,44 @@
 
     /* Load All Games */
 
-    db.ref("ourgames").on("value", snapshot => {
-
+ db.ref("all_games").on("value", snapshot => {
+ const allgamesArray = [];
     gamesList.innerHTML = "";
-
   snapshot.forEach(child => {
-
     const game = child.val();
+    allgamesArray.push({
+      name: game.gamename,
+      icon: game.iconimage_url, // change if dynamic
+      image: game.image_url,
+      video : game.utube_url,
+      playstore: game.playstore_url
+    });
+  if (allgamesArray.length === 0) return;
 
-    gamesList.innerHTML += `
-    
-    <a class="article" href="${game.playstore_url}" target="_blank">
+  // Render original + duplicate for infinite loop
+  allgamesArray.forEach(game => gamesList.appendChild(createCard(game)));
+    allgamesArray.forEach(game => gamesList.appendChild(createCard(game)));
+      allgamesArray.forEach(game => gamesList.appendChild(createCard(game)));
 
-      <img src="${game.ss_1_url}" alt="${game.gamename}" />
-
-      <div class="wrap">
-
+    function createCard(game) {
+    const article = document.createElement("article");
+    article.innerHTML = `
+      <img src="${game.image}" alt="${game.name}" />
+      <div class="details">
+        <img src="${game.icon}" alt="${game.name}" />
         <div>
-          <h3>${game.gamename}</h3>
-
-          <div class="details">
-
-            <div class="author">
-              <img src="assets/icons/person.svg" alt="">
-              <span>Game Village Studios</span>
-            </div>
-
-            <div class="time">
-              <img src="assets/icons/clock.svg" alt="">
-              <p>${game.release_date || "Coming Soon"}</p>
-            </div>
-
+          <h3>${game.name}</h3>
+          <div class="btns">
+            <a title="playstore" target="_blank" href="${game.playstore_url}">
+              <img src="assets/img/play-store.png" alt="Play Store" />
+            </a>
           </div>
         </div>
-
-        <p>${game.description}</p>
-
-        <button class="btn" type="button">
-          <span>Download Game</span>
-          <img src="assets/icons/arrow-right.svg" alt="">
-        </button>
-
       </div>
-
-    </a>
-
     `;
+    return article;
+  }
+
 
   });
 
