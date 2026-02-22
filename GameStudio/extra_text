@@ -1,0 +1,120 @@
+        <article>
+          <img src="assets/games_icons/foodtruck.webp" alt="" />
+          <div class="details">
+            <img src="assets/games_icons/foodtruck.webp" alt="" />
+            <div>
+              <h3>Food Truck Frenzy</h3>
+              <div class="btns">
+                <a title="playstore" target="_blank" href="https://play.google.com/store/apps/details?id=com.gvs.foodtruck">
+                  <img src="assets/img/play-store.png" alt=""
+                />
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article>
+          <img src="assets/games_icons/idlefarmtycoon.webp" alt="" />
+          <div class="details">
+            <img src="assets/games_icons/idlefarmtycoon.webp" alt="" />
+            <div>
+              <h3>Idle Farm Tycon Farm</h3>
+              <div class="btns">
+                <a title="playstore" target="_blank" href="https://play.google.com/store/apps/details?id=com.gamevillagestudio.farmbusinesstycoon">
+                  <img src="assets/img/play-store.png" alt=""
+                /></a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+       <div class="featured-slider" id="featuredSlider"></div>
+
+
+           article.innerHTML = `
+      <img src="${game.icon}" alt="${game.name}" />
+      <div class="details">
+        <img src="${game.icon}" alt="${game.name}" />
+        <div>
+          <h3>${game.name}</h3>
+          <div class="btns">
+            <a title="playstore" target="_blank" href="${game.playstore}">
+              <img src="assets/img/play-store.png" alt="Play Store" />
+            </a>
+          </div>
+        </div>
+      </div>
+    `;
+
+
+
+
+        db.ref("featured_games").on("value", snapshot => {
+
+    featuredSlider.innerHTML = "";
+
+    snapshot.forEach(child => {
+
+        const game = child.val();
+            const article = document.createElement("article");
+
+        article.innerHTML = `
+        <img src="assets/games_icons/foodtruck.webp" alt="${game.name}" />
+        <div class="details">
+            <img src="assets/games_icons/foodtruck.webp" alt="${game.name}" />
+            <div>
+            <h3>${game.gamename}</h3>
+            <div class="btns">
+                <a title="playstore" target="_blank" href="${game.playstore}">
+                <img src="assets/img/play-store.png" alt="Play Store" />
+                </a>
+            </div>
+            </div>
+        </div>
+        `;
+
+        featuredSlider.appendChild(article);
+    });
+
+    // Duplicate cards for infinite effect
+    games.forEach(game => {
+    const article = document.createElement("article");
+    article.innerHTML = `
+        <img src="${game.icon}" alt="${game.name}" />
+        <div class="details">
+        <img src="${game.icon}" alt="${game.name}" />
+        <div>
+            <h3>${game.name}</h3>
+            <div class="btns">
+            <a title="playstore" target="_blank" href="${game.playstore}">
+                <img src="assets/img/play-store.png" alt="Play Store" />
+            </a>
+            </div>
+        </div>
+        </div>
+    `;
+    featuredSlider.appendChild(article);
+    });
+        // Slider logic
+    let position = 0;
+    const cardWidth = featuredSlider.querySelector("article").offsetWidth + 20; // article width + gap
+    const totalCards = featuredSlider.children.length;
+
+    // Animate continuously
+        function slide() {
+        position += 1; // speed in px
+        if (position >= (totalCards / 2) * cardWidth) {
+            position = 0; // reset for infinite loop
+        }
+        featuredSlider.style.transform = `translateX(-${position}px)`;
+        requestAnimationFrame(slide);
+        }
+
+        // Start animation only if more than 2 cards
+        if (games.length > 2) {
+        slide();
+        } else {
+        featuredSlider.style.transform = "translateX(0)";
+        }
+    });

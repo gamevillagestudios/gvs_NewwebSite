@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
@@ -40,8 +41,37 @@
     </div>
 
     <section id="games">
+  <h2>Featured Games</h2>
+   <div class="cards-wrapper">
+     <div class="cards" id="cardsContainer">
+    <!-- Articles will be injected here dynamically -->
+  </div>
+  </div>
+  <a class="btn" href="moregames.html">More Games</a>
+</section>
+
+<style>
+  .cards-wrapper {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .cards {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .cards article {
+    min-width: calc(50% - 10px); /* 2 cards visible */
+    box-sizing: border-box;
+  }
+</style>
+
+
+    <!-- <section id="games">
       <h2>Featured Games</h2>
-      <div class="cards">
+       <div class="cards"> 
         <article>
           <img src="assets/games_icons/foodtruck.webp" alt="" />
           <div class="details">
@@ -51,7 +81,8 @@
               <div class="btns">
                 <a title="playstore" target="_blank" href="https://play.google.com/store/apps/details?id=com.gvs.foodtruck">
                   <img src="assets/img/play-store.png" alt=""
-                /></a>
+                />
+                </a>
               </div>
             </div>
           </div>
@@ -69,10 +100,10 @@
               </div>
             </div>
           </div>
-        </article>
+        </article> 
       </div>
       <a class="btn" href="moregames.html">More Games</a>
-    </section>
+    </section> -->
 
     <section id="team">
       <h2>Our Team</h2>
@@ -100,7 +131,7 @@
         <article>
           <img src="assets/img/ayaz.jpg" alt="" />
           <h3>Ayaz Amin</h3>
-          <p>Co-founder / CTO</p>
+          <p>Lead Designer</p>
           <div class="socials">
             <a target="_blank" title="twitter" href="https://twitter.com"
               ><img src="assets/icons/icons8-twitter.svg" alt=""
@@ -114,9 +145,9 @@
           </div>
         </article>
         <article>
-          <img src="assets/img/team-3.jpg" alt="" />
-          <h3>Adam Idrees</h3>
-          <p>Game Design Lead</p>
+          <img src="assets/img/ash_2.jpg" alt="" />
+          <h3>Ayesha Ghaznavi</h3>
+          <p>CTO / LEAD ASO</p>
           <div class="socials">
             <a target="_blank" title="twitter" href="https://twitter.com"
               ><img src="assets/icons/icons8-twitter.svg" alt=""
@@ -130,9 +161,9 @@
           </div>
         </article>
         <article>
-          <img src="assets/img/team-4.jpg" alt="" />
-          <h3>Aishath Ahmad</h3>
-          <p>Lead Artist</p>
+          <img src="assets/img/two.jpg" alt="" />
+          <h3>Nimra Nawaz</h3>
+          <p>Social Media Manager</p>
           <div class="socials">
             <a target="_blank" title="twitter" href="https://twitter.com"
               ><img src="assets/icons/icons8-twitter.svg" alt=""
@@ -222,5 +253,12 @@
 
         <p class="text">&copy 2022 Game Village Studios. All Rights Reserved</p>
     </footer>
+    <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+
+<script src="javascript/firebase-config.js"></script>
+<script src="javascript/app.js"></script>
+
   </body>
 </html>

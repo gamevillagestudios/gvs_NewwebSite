@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Upload Panel</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 16px;
+      width: 420px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #38bdf8;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+
+    .status {
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Add New Game</h2>
+
+  <input id="gamename" placeholder="Game Name">
+  <textarea id="description" placeholder="Description"></textarea>
+
+  <input id="image" placeholder="Main Image URL">
+  <input id="icon" placeholder="Icon 1 URL">
+  <input id="youtube_url" placeholder="video URL">
+
+  <input id="playstore" placeholder="Play Store URL">
+  <input id="appstore" placeholder="App Store URL">
+
+  <select id="section">
+    <option value="featured_games">Feature Games</option>
+    <option value="all_games">All Games</option>
+  </select>
+
+  <button onclick="saveGame()">Save Game</button>
+
+  <div class="status" id="status"></div>
+</div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+<script>
+
+// 🔥 Your Firebase Config Here
+const firebaseConfig = {
+  apiKey: "AIzaSyC4FovNT45tT6K9oBQe5gqqyrv4qYPkqyk",
+  authDomain: "gvsweb-a6858.firebaseapp.com",
+  databaseURL: "https://gvsweb-a6858-default-rtdb.firebaseio.com",
+  projectId: "gvsweb-a6858"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+function saveGame() {
+
+  const gameData = {
+    gamename: document.getElementById("gamename").value,
+    description: document.getElementById("description").value,
+    image_url: document.getElementById("image").value,
+    iconimage_url: document.getElementById("icon").value,
+    utube_url: document.getElementById("youtube_url").value,
+    playstore_url: document.getElementById("playstore").value,
+    appstore_url: document.getElementById("appstore").value,
+    createdAt: Date.now()
+  };
+
+  const section = document.getElementById("section").value;
+
+  db.ref(section).push(gameData)
+    .then(() => {
+      document.getElementById("status").innerText = "✅ Game Saved Successfully";
+      clearForm();
+    })
+    .catch(() => {
+      document.getElementById("status").innerText = "❌ Error Saving Game";
+    });
+}
+
+function clearForm() {
+  document.querySelectorAll("input, textarea").forEach(el => el.value = "");
+}
+
+</script>
+
+</body>
+</html>

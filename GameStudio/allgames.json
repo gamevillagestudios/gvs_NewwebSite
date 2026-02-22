@@ -1,0 +1,22 @@
+{
+  "featuregame": [
+    {
+      "name": "Food Truck Frenzy",
+      "description": "Cook and serve food fast",
+      "screenshot_link": "assets/games_icons/foodtruck.webp",
+      "icon_link": "assets/games_icons/foodtruck.webp",
+      "playstore_link": "https://play.google.com/store/apps/details?id=com.gvs.foodtruck",
+      "youtube_link": ""
+    }
+  ],
+  "allgames": [
+    {
+      "name": "Idle Farm Tycoon",
+      "description": "Build your farm empire",
+      "screenshot_link": "assets/games_icons/idlefarmtycoon.webp",
+      "icon_link": "assets/games_icons/idlefarmtycoon.webp",
+      "playstore_link": "https://play.google.com/store/apps/details?id=com.gamevillagestudio.farmbusinesstycoon",
+      "youtube_link": ""
+    }
+  ]
+}

@@ -251,12 +251,16 @@ nav li a:hover {
 }
 
 /* ----- OUR GAMES ----- */
-
 #games .cards {
-  display: grid;
   gap: 1.5rem;
   margin-top: 0.5rem;
 }
+
+/* #games .cards {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+} */
 @media (min-width: 800px) {
   #games .cards {
     grid-template-columns: repeat(2, 1fr);
@@ -499,5 +503,22 @@ footer .text {
   footer .links {
     gap: 2.5rem;
     flex-direction: row;
+  }
+
+    /* Slider styles */
+  .cards-wrapper {
+     border-radius: 20px; 
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+  .cards {
+    display: flex;
+    gap: 20px;
+   transition: translateX(0);
+  }
+  .cards article {
+    min-width: calc(50% - 10px); /* 2 elements on screen */
+    box-sizing: border-box;
   }
 }

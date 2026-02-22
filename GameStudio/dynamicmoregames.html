@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Games | Game Village Studios</title>
+
+<style>
+body{
+  font-family: Arial;
+  margin:0;
+  background:#f5f5f5;
+}
+
+header{
+  background:#111;
+  color:white;
+  padding:15px;
+}
+
+.logo{
+  color:white;
+  font-size:22px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+section{
+  padding:40px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+
+article{
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:.3s;
+}
+
+article:hover{
+  transform:translateY(-5px);
+}
+
+article img{
+  width:100%;
+}
+
+.details{
+  display:flex;
+  gap:15px;
+  padding:15px;
+}
+
+.details img{
+  width:60px;
+  height:60px;
+  border-radius:12px;
+}
+
+.btns img{
+  width:140px;
+  margin-top:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <a href="#" class="logo">Game Village Studios</a>
+</header>
+
+<!-- FEATURED -->
+<section>
+  <h2>Featured Games</h2>
+  <div class="cards" id="featuredGames"></div>
+</section>
+
+<!-- ALL GAMES -->
+<section>
+  <h2>All Games</h2>
+  <div class="cards" id="allGames"></div>
+</section>
+
+<script>
+
+fetch("allgames.json")
+  .then(response => {
+
+    // Check if file found
+    if (!response.ok) {
+      throw new Error("JSON file not found. Status: " + response.status);
+    }
+
+    return response.json();
+  })
+
+  .then(data => {
+    console.log("JSON Loaded Successfully ✅");
+    console.log(data);
+  })
+
+  .catch(error => {
+    console.error("JSON Load Failed ❌");
+    console.error(error);
+  });
+
+fetch("allgames.json")
+.then(res => res.json())
+.then(data => {
+        // Check if file found
+
+
+  // ===== FEATURED GAMES =====
+  const featured = document.getElementById("featuredGames");
+
+  data.featuregame.forEach(game => {
+    featured.innerHTML += `
+      <article>
+        <img src="${game.screenshot_link}">
+        <div class="details">
+          <img src="${game.icon_link}">
+          <div>
+            <h3>${game.name}</h3>
+            <p>${game.description}</p>
+
+            <div class="btns">
+              <a target="_blank" href="${game.playstore_link}">
+                <img src="assets/img/play-store.png">
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+    `;
+  });
+
+
+  // ===== ALL GAMES =====
+  const all = document.getElementById("allGames");
+
+  data.allgames.forEach(game => {
+    all.innerHTML += `
+      <article>
+        <img src="${game.screenshot_link}">
+        <div class="details">
+          <img src="${game.icon_link}">
+          <div>
+            <h3>${game.name}</h3>
+            <p>${game.description}</p>
+
+            <div class="btns">
+              <a target="_blank" href="${game.playstore_link}">
+                <img src="assets/img/play-store.png">
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+    `;
+  });
+
+})
+.catch(err => console.log(err));
+
+</script>
+
+</body>
+</html>
