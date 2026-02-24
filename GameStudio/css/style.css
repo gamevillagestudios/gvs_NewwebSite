@@ -177,7 +177,7 @@ nav li a:hover {
 
 /* ---- HERO SECTION ---- */
 .hero-wrap {
-  background: url('../assets/img/mhero-bg.jpeg') no-repeat center center/cover;
+  background: url('../assets/img/hero-bg.webp') no-repeat center center/cover;
   min-height: 100vh;
   color: hsl(240, 76%, 96%);
   display: grid;
@@ -220,14 +220,6 @@ nav li a:hover {
   color: hsl(209, 76%, 96%);
 }
 
-.circle-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-}
-
 #hero h1 {
   font-size: 2rem;
   line-height: 1.2;
@@ -251,16 +243,12 @@ nav li a:hover {
 }
 
 /* ----- OUR GAMES ----- */
-#games .cards {
-  gap: 1.5rem;
-  margin-top: 0.5rem;
-}
 
 /* #games .cards {
   display: grid;
   gap: 1.5rem;
   margin-top: 0.5rem;
-} */
+}
 @media (min-width: 800px) {
   #games .cards {
     grid-template-columns: repeat(2, 1fr);
@@ -309,8 +297,218 @@ nav li a:hover {
   #games .details > img {
     display: block;
   }
+} */
+
+/* SECTION */
+/* Featured SECTION */
+ .games-section {
+  padding: 70px 5%;
+  /* background: #183ed6; */
+  text-align: center;
 }
 
+ .overlay {
+   position: absolute;
+  inset: 0;
+  z-index: 2; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 30px 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2)); 
+} 
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 50px;
+  font-weight: 700;
+} 
+
+.card-bg {
+  position: relative;
+  width: 100%;
+  height: 500px; /* fixed card height */
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+/* Blurred background layer */
+.blur-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(25px);
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+/* Main sharp image */
+.card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* important */
+  object-position: center;
+  z-index: 1;
+}
+
+/* .card-bg {
+  aspect-ratio: 4/4;
+  background-size: cover;
+  background-position: center;
+  background-color: #e5e7eb; 
+  position: relative;
+  width: 100%;
+  height: 100%;
+} */
+
+/* GRID */
+.games-grid {
+  display: grid;
+  gap: 30px;
+  justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .games-grid {
+     grid-template-columns: repeat(2, 400px);
+    /* grid-template-columns: repeat(2, 1fr); */
+  }
+} 
+
+/* CARD */
+ /* .game-card {
+  background: #e5e7eb; 
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.4s ease;
+} */
+ .game-card {
+  background: #e5e7eb;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.4s ease;
+  width: 100%;
+  max-width: 400px;
+}
+
+.game-card:hover {
+  transform: translateY(-20px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+} 
+
+/* BACKGROUND IMAGE */
+/* .card-bg {
+  aspect-ratio: 3/4;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  position: relative;
+} */
+
+/* DARK OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;  /* move content to bottom */
+  align-items: center;
+  padding: 30px 20px;
+  text-align: center;
+}
+/* .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(94, 85, 85, 0.8), rgba(0,0,0,0.2));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}  */
+
+/* GAME ICON */
+ /* .game-icon {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}  */
+  .game-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 12px;
+   z-index: -1;
+}
+.game-title {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 15px;
+  z-index: -1;
+}
+
+/* TITLE */
+/* .game-title {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 20px;
+} */
+
+/* STORE BUTTONS */
+.store-buttons {
+  display: flex;
+  gap: 15px;
+  z-index: -1;
+}
+
+.store-btn img {
+  width: 130px;
+  transition: 0.3s;
+  z-index: -1;
+}
+
+.store-btn img:hover {
+  transform: scale(1.05);
+}  
+
+@media (max-width: 600px) {
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-bg {
+    height: 420px;
+  }
+}
+/* MOBILE ADJUST */
+ /* @media (max-width: 600px) {
+  .card-bg {
+    aspect-ratio: 16/9;
+  }
+
+  .game-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .game-title {
+    font-size: 18px;
+  }
+
+  .store-btn img {
+    width: 110px;
+  }
+} */
 /* ----- OUR TEAM ----- */
 
 #team .subtitle,
@@ -503,22 +701,5 @@ footer .text {
   footer .links {
     gap: 2.5rem;
     flex-direction: row;
-  }
-
-    /* Slider styles */
-  .cards-wrapper {
-     border-radius: 20px; 
-    overflow: hidden;
-    width: 100%;
-    position: relative;
-  }
-  .cards {
-    display: flex;
-    gap: 20px;
-   transition: translateX(0);
-  }
-  .cards article {
-    min-width: calc(50% - 10px); /* 2 elements on screen */
-    box-sizing: border-box;
   }
 }

@@ -1,7 +1,7 @@
     //const featuredSlider = document.getElementById("featuredSlider");
     const featuredSlider = document.getElementById("cardsContainer");
     const gamesList = document.getElementById("gamesList");
-
+  const gamesGrid = document.querySelector(".games-grid");
     /* Load Featured Games */
 
   db.ref("featured_games").on("value", snapshot => {
@@ -24,27 +24,35 @@
   if (gamesArray.length === 0) return;
 
   // Render original + duplicate for infinite loop
-  gamesArray.forEach(game => featuredSlider.appendChild(createCard(game)));
-  gamesArray.forEach(game => featuredSlider.appendChild(createCard(game))); // duplicate
+  gamesArray.forEach(game => featuredSlider.appendChild(createXCard(game)));
 
-  function createCard(game) {
-    const article = document.createElement("article");
-    article.innerHTML = `
-      <img src="${game.image}" alt="${game.name}" />
-      <div class="details">
-        <img src="${game.icon}" alt="${game.name}" />
-        <div>
-          <h3>${game.name}</h3>
-          <div class="btns">
-            <a title="playstore" target="_blank" href="${game.playstore_url}">
-              <img src="assets/img/play-store.png" alt="Play Store" />
-            </a>
-          </div>
+  function createXCard(game) {
+  const div = document.createElement("div");
+  div.classList.add("game-card");
+
+  div.innerHTML = `
+    <div class="card-bg">
+      <div class="blur-bg" style="background-image: url('${game.image}')"></div>
+
+      <img src="${game.image}" class="card-image" alt="${game.name}">
+
+      <div class="overlay">
+        <img src="${game.icon}" class="game-icon" alt="${game.name}">
+        <h3 class="game-title">${game.name}</h3>
+        <div class="store-buttons">
+          <a href="${game.playstore}" class="store-btn">
+            <img src="assets/img/play-store.png" alt="Play Store">
+          </a>
+          <a href="${game.video}" class="store-btn">
+            <img src="assets/img/app-store.png" alt="App Store">
+          </a>
         </div>
       </div>
-    `;
-    return article;
-  }
+    </div>
+  `;
+
+  return div;
+}
 
   // Wait images to load for correct offsetWidth
   setTimeout(() => {
