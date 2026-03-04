@@ -1,0 +1,19 @@
+{
+  "games": [
+    {
+      "GameName": "Mosquito Frenzy",
+      "GameURL": "https://play.google.com/store/apps/details?id=com.yourcompany.mosquitofrenzy",
+      "GameIcon": "mosquito_icon"
+    },
+    {
+      "GameName": "Dive Flip",
+      "GameURL": "https://play.google.com/store/apps/details?id=com.yourcompany.diveflip",
+      "GameIcon": "dive_icon"
+    },
+    {
+      "GameName": "Air Dogfight",
+      "GameURL": "https://play.google.com/store/apps/details?id=com.yourcompany.airdogfight",
+      "GameIcon": "air_icon"
+    }
+  ]
+}
