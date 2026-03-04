@@ -1,19 +1,34 @@
 {
   "games": [
     {
-      "GameName": "Mosquito Frenzy",
-      "GameURL": "https://play.google.com/store/apps/details?id=com.yourcompany.mosquitofrenzy",
-      "GameIcon": "mosquito_icon"
+      "GameName": "Screw Wood",
+      "GameURL": "https://play.google.com/store/apps/details?id=com.gvs.screwpuzzle",
+      "GameIcon": "https://play-lh.googleusercontent.com/F-Q_DcXvJf14hlNYRW__NmJuos9wKMaPwzMzkxLD-rc5ZMImDVW1hGPz5BDtWG-OHLo=s512-rw"
     },
     {
-      "GameName": "Dive Flip",
-      "GameURL": "https://play.google.com/store/apps/details?id=com.yourcompany.diveflip",
-      "GameIcon": "dive_icon"
+      "GameName": "Idle Farm Tycoon",
+      "GameURL": "https://play.google.com/store/apps/details?id=com.gamevillagestudio.farmbusinesstycoon",
+      "GameIcon": "https://play-lh.googleusercontent.com/xCNVj57HCmTg2YW0ZYgXC_PsQWzxyW0HGuQfc480ztp7whLqpNJRY-rsRP5bVNtYJ4c=s512-rw"
     },
     {
-      "GameName": "Air Dogfight",
-      "GameURL": "https://play.google.com/store/apps/details?id=com.yourcompany.airdogfight",
-      "GameIcon": "air_icon"
+      "GameName": "Food Truck",
+      "GameURL": "https://play.google.com/store/apps/details?id=com.gvs.foodtruck",
+      "GameIcon": "https://play-lh.googleusercontent.com/jBbGJla_7L8XGewIzJRuppAJDjdGbDgHymV9K8yRinJf_b35GKMHRWsyVPaGnxtuuA=s512-rw"
+    },
+        {
+      "GameName": "Bird Sort Puzzle",
+      "GameURL": "https://play.google.com/store/apps/details?id=com.gvs.BirdSorter",
+      "GameIcon": "https://play-lh.googleusercontent.com/8B4Til-78MMtGD9urfaC59IU6XdV7P3wfDZlKGnro1IH43loR8n7x_g0ITpPCAOLCmif=s512-rw"
+    },
+            {
+      "GameName": "Hexa Flowers Puzzle",
+      "GameURL": "https://play.google.com/store/apps/details?id=com.gvs.hexaflowerpuzzle",
+      "GameIcon": "https://play-lh.googleusercontent.com/rju3TWTPhi0CYbYgQuvbojlgKpfTwiVls88pn0Ltgfse3RWCvWo9kGWs_0pDtaYEHR0J=s512-rw"
+    },
+                {
+      "GameName": "Nuts Screw Puzzle",
+      "GameURL": "https://play.google.com/store/apps/details?id=com.gvs.nutsscrewpuzzle3d",
+      "GameIcon": "https://play-lh.googleusercontent.com/nDUtO4En9N2DnGNxQ8It2y-xKP-L3u58mXncWXOESIXNHgOOCuMHn4mgpY_xQKye424=s512-rw"
     }
   ]
 }
